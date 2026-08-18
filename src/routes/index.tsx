@@ -26,6 +26,14 @@ import {
   Menu,
   X,
   Calendar,
+  Globe2,
+  Smartphone,
+  Bot,
+  Workflow,
+  PenLine,
+  Image,
+ 
+  
 } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
 
@@ -169,7 +177,7 @@ function Button({
 function Nav() {
   const [open, setOpen] = useState(false);
   const links = [
-    ["About", "#about"],
+    ["About", "#about"], 
     ["Services", "#services"],
     ["Work", "#work"],
     ["Process", "#process"],
@@ -180,9 +188,9 @@ function Nav() {
       <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full glass px-4 py-2.5">
         <a href="#" className="flex items-center gap-2 pl-2">
           <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-[color:var(--cyan)] to-[color:var(--purple)] font-display text-sm font-bold text-black">
-            JA
+            YP
           </span>
-          <span className="hidden text-sm font-semibold sm:inline">John Anderson</span>
+          <span className="hidden text-sm font-semibold sm:inline">Yash Patil</span>
         </a>
         <nav className="hidden items-center gap-1 md:flex">
           {links.map(([l, h]) => (
@@ -258,7 +266,7 @@ function Hero() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              I'm <span className="text-foreground font-medium">John Anderson</span> — a full-stack
+              I'm <span className="text-foreground font-medium">Yash Patil</span> — a full-stack
               developer, AI engineer, and cloud architect. I build scalable web apps, AI-powered
               products, and modern digital experiences that help ambitious teams grow.
             </p>
@@ -298,7 +306,7 @@ function Hero() {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 glass">
               <img
                 src={portrait}
-                alt="Portrait of John Anderson"
+                alt="Portrait of Yash Patil"
                 width={1024}
                 height={1280}
                 className="h-full w-full object-cover"
@@ -325,84 +333,105 @@ function Hero() {
   );
 }
 
+
+/* ---------- About ---------- */
+
 function About() {
-  const timeline = [
-    { year: "2024", title: "Independent Studio", body: "Launched full-service freelance practice serving Y-Combinator, SaaS and enterprise clients." },
-    { year: "2022", title: "Lead Engineer · Fintech", body: "Architected a real-time trading dashboard used by 40k+ daily active traders." },
-    { year: "2020", title: "AI Research Engineer", body: "Shipped early LLM tooling and retrieval systems before RAG was mainstream." },
-    { year: "2018", title: "Full Stack Developer", body: "Started professional career shipping React and Node products for agencies." },
-  ];
   return (
     <section id="about" className="relative py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+
+          {/* Left Content */}
           <div>
             <Reveal>
-              <SectionLabel>About</SectionLabel>
+              <SectionLabel>About Me</SectionLabel>
             </Reveal>
+
             <Reveal delay={0.1}>
               <h2 className="mt-6 text-4xl font-bold sm:text-5xl">
-                A decade of shipping
-                <br />
-                <span className="text-gradient">product-grade software.</span>
+                Hi, I'm{" "}
+                <span className="text-gradient">Yash Patil.</span>
               </h2>
             </Reveal>
+
             <Reveal delay={0.2}>
-              <p className="mt-6 text-muted-foreground">
-                I partner with founders and product teams to design, build, and scale software that
-                actually earns revenue. My work sits at the intersection of engineering craft,
-                clear communication, and calm attention to detail.
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                I'm a freelance developer and digital creator passionate about
+                turning ideas into useful and modern digital solutions. I enjoy
+                working with businesses, creators, and individuals to help bring
+                their ideas online.
               </p>
             </Reveal>
 
             <Reveal delay={0.3}>
-              <div className="mt-10 grid grid-cols-2 gap-4">
-                {[
-                  ["Mission", "Ship software that compounds value."],
-                  ["Vision", "Empower lean teams with AI-native tools."],
-                  ["Values", "Clarity, craft, ownership."],
-                  ["Fun fact", "Recorded a jazz EP in 2021."],
-                ].map(([k, v]) => (
-                  <div key={k} className="rounded-2xl glass p-5">
-                    <div className="text-xs uppercase tracking-widest text-muted-foreground">
-                      {k}
-                    </div>
-                    <div className="mt-2 text-sm text-foreground">{v}</div>
-                  </div>
-                ))}
-              </div>
+              <p className="mt-5 leading-relaxed text-muted-foreground">
+                From websites and web applications to social media content,
+                AI-powered solutions, and automation, I focus on creating work
+                that is simple, useful, and designed around real needs.
+              </p>
             </Reveal>
 
             <Reveal delay={0.4}>
+              <p className="mt-5 leading-relaxed text-muted-foreground">
+                I'm always learning, exploring new technologies, and looking
+                for opportunities to work on interesting projects. My goal is
+                to build quality digital solutions while growing through every
+                project and collaboration.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.5}>
               <div className="mt-8">
-                <Button variant="ghost" icon={<Download className="h-4 w-4" />}>
-                  Download Resume
-                </Button>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 rounded-full border border-[color:var(--cyan)]/40 bg-[color:var(--cyan)]/10 px-6 py-3 text-sm font-medium text-[color:var(--cyan)] transition-all hover:bg-[color:var(--cyan)]/20"
+                >
+                  Let's Work Together
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </Reveal>
           </div>
 
-          <div className="relative">
-            <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-[color:var(--cyan)] via-[color:var(--primary)] to-transparent" />
-            <div className="space-y-6">
-              {timeline.map((t, i) => (
-                <Reveal key={t.year} delay={i * 0.08}>
-                  <div className="relative pl-12">
-                    <div className="absolute left-2 top-2 h-4 w-4 rounded-full border border-white/20 bg-background shadow-[0_0_20px_var(--primary)]">
-                      <div className="m-1 h-2 w-2 rounded-full bg-gradient-to-br from-[color:var(--cyan)] to-[color:var(--purple)]" />
-                    </div>
-                    <div className="rounded-2xl glass p-5">
-                      <div className="text-xs uppercase tracking-widest text-[color:var(--cyan)]">
-                        {t.year}
-                      </div>
-                      <div className="mt-1 text-lg font-semibold">{t.title}</div>
-                      <div className="mt-2 text-sm text-muted-foreground">{t.body}</div>
-                    </div>
+          {/* Right Side */}
+          <div>
+            <Reveal delay={0.2}>
+              <div className="rounded-3xl glass p-8 sm:p-10">
+                <div className="text-xs uppercase tracking-widest text-[color:var(--cyan)]">
+                  What I Do
+                </div>
+
+                <h3 className="mt-3 text-2xl font-semibold">
+                  Building ideas for the digital world.
+                </h3>
+
+                <div className="mt-8 space-y-5">
+                  <div className="border-b border-white/10 pb-5">
+                    <h4 className="font-semibold">Web Development</h4>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Modern websites and web applications built around your needs.
+                    </p>
                   </div>
-                </Reveal>
-              ))}
-            </div>
+
+                  <div className="border-b border-white/10 pb-5">
+                    <h4 className="font-semibold">AI & Automation</h4>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Smart solutions that help automate work and simplify workflows.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold">Social Media & Creative Work</h4>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Content, captions, posts, and creative designs for your online presence.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
           </div>
+
         </div>
       </div>
     </section>
@@ -414,62 +443,99 @@ function Services() {
     {
       icon: Code2,
       title: "Web Development",
-      desc: "Custom, high-performance web platforms with pixel-perfect UI and rock-solid APIs.",
-      features: ["Responsive design", "REST & GraphQL APIs", "Backend systems", "CMS integration"],
-      from: "$3,500",
+      desc: "Custom, scalable web applications built with modern technologies, secure APIs, and high-performance architecture.",
+      features: [
+        "Custom web applications",
+        "Frontend & backend development",
+        "REST API development",
+        "Database integration",
+      ],
+      from: "Contact for pricing",
     },
     {
-      icon: Cpu,
-      title: "AI Development",
-      desc: "LLM apps, chatbots, RAG pipelines, and workflow automation built on modern AI stacks.",
-      features: ["RAG systems", "LLM applications", "AI chatbots", "Workflow automation"],
-      from: "$4,900",
+      icon: Globe2,
+      title: "Website Development",
+      desc: "Modern, responsive, and visually impressive websites designed to represent your brand and convert visitors.",
+      features: [
+        "Business websites",
+        "Portfolio websites",
+        "Landing pages",
+        "Fully responsive design",
+      ],
+      from: "Contact for pricing",
     },
     {
-      icon: Cloud,
-      title: "Cloud Solutions",
-      desc: "Resilient infrastructure on AWS and Azure with CI/CD, observability, and zero downtime.",
-      features: ["AWS & Azure", "Docker & Kubernetes", "CI/CD pipelines", "Deployment"],
-      from: "$2,800",
+      icon: Bot,
+      title: "Agentic AI Development",
+      desc: "Intelligent AI agents that can understand tasks, make decisions, use tools, and automate complex workflows.",
+      features: [
+        "AI agents",
+        "LLM-powered applications",
+        "RAG systems",
+        "Multi-agent workflows",
+      ],
+      from: "Contact for pricing",
     },
     {
-      icon: Palette,
-      title: "UI / UX Development",
-      desc: "Landing pages, dashboards, and admin panels that convert visitors into paying users.",
-      features: ["Landing pages", "Dashboards", "Admin panels", "Mobile responsive"],
-      from: "$1,900",
+      icon: Workflow,
+      title: "Automation Development",
+      desc: "Smart automation solutions that eliminate repetitive work and connect your systems for faster operations.",
+      features: [
+        "Business process automation",
+        "Workflow automation",
+        "API integrations",
+        "Custom automation tools",
+      ],
+      from: "Contact for pricing",
     },
     {
-      icon: Gauge,
-      title: "Performance",
-      desc: "Audit and optimize slow, bloated apps into fast, Core Web Vitals-friendly products.",
-      features: ["Lighthouse 95+", "Bundle optimization", "Caching", "SEO wins"],
-      from: "$1,500",
+      icon: PenLine,
+      title: "Social Media Content Writing",
+      desc: "Engaging captions and content created to help your brand communicate clearly, connect with your audience, and grow online.",
+      features: [
+        "Instagram captions",
+        "Social media content",
+        "Creative copywriting",
+        "Content ideas",
+      ],
+      from: "Contact for pricing",
     },
     {
-      icon: Sparkles,
-      title: "Consulting",
-      desc: "Architecture reviews, technical strategy, and hands-on mentorship for engineering teams.",
-      features: ["Architecture", "Code review", "Team mentorship", "Roadmapping"],
-      from: "$220/hr",
+      icon: Image,
+      title: "Instagram Post & Story Design",
+      desc: "Creative and visually engaging Instagram posts and stories designed to strengthen your brand presence and capture attention.",
+      features: [
+        "Instagram post design",
+        "Instagram story design",
+        "Promotional creatives",
+        "Brand-focused designs",
+      ],
+      from: "Contact for pricing",
     },
   ];
+
   return (
     <section id="services" className="relative py-32">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <SectionLabel>Services</SectionLabel>
         </Reveal>
+
         <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
           <Reveal delay={0.1}>
             <h2 className="max-w-2xl text-4xl font-bold sm:text-5xl">
-              Everything you need to <span className="text-gradient">ship & scale.</span>
+              Solutions built to{" "}
+              <span className="text-gradient">
+                grow your ideas.
+              </span>
             </h2>
           </Reveal>
+
           <Reveal delay={0.2}>
             <p className="max-w-md text-muted-foreground">
-              Six focused offerings — priced transparently, scoped weekly, delivered with a
-              production-grade quality bar.
+              From websites and applications to AI, automation, content, and
+              creative social media designs, I build digital solutions around
+              your business needs.
             </p>
           </Reveal>
         </div>
@@ -477,38 +543,64 @@ function Services() {
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.05}>
-              <div className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-card/60 p-7 transition-all duration-500 hover:border-white/20 hover:-translate-y-1">
+              <div className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-card/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-white/20">
+
+                {/* Hover Gradient */}
                 <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                   <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-[color:var(--cyan)]/20 via-transparent to-[color:var(--purple)]/20" />
                 </div>
+
                 <div className="relative">
+
+                  {/* Service Icon */}
                   <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-white/10 to-transparent">
                     <s.icon className="h-6 w-6 text-[color:var(--cyan)]" />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold">{s.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+
+                  {/* Title */}
+                  <h3 className="mt-6 text-xl font-semibold">
+                    {s.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {s.desc}
+                  </p>
+
+                  {/* Features */}
                   <ul className="mt-6 space-y-2">
                     {s.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Check className="h-4 w-4 text-[color:var(--emerald)]" />
+                      <li
+                        key={f}
+                        className="flex items-center gap-2 text-sm text-muted-foreground"
+                      >
+                        <Check className="h-4 w-4 shrink-0 text-[color:var(--emerald)]" />
                         {f}
                       </li>
                     ))}
                   </ul>
+
+                  {/* Bottom Section */}
                   <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-6">
                     <div>
                       <div className="text-xs uppercase tracking-widest text-muted-foreground">
-                        Starting from
+                        Pricing
                       </div>
-                      <div className="font-display text-xl font-semibold">{s.from}</div>
+
+                      <div className="font-display text-base font-semibold">
+                        {s.from}
+                      </div>
                     </div>
+
                     <a
                       href="#contact"
                       className="inline-flex items-center gap-1 text-sm text-[color:var(--cyan)] transition-all hover:gap-2"
                     >
-                      Enquire <ArrowRight className="h-4 w-4" />
+                      Enquire
+                      <ArrowRight className="h-4 w-4" />
                     </a>
                   </div>
+
                 </div>
               </div>
             </Reveal>
@@ -525,7 +617,7 @@ function TechStack() {
     "Node.js", "Express", ".NET Core", "C#", "Python", "Java",
     "PostgreSQL", "MongoDB", "MySQL", "Redis", "SQL Server",
     "AWS", "Azure", "Docker", "Vercel", "Firebase",
-    "OpenAI", "LangChain", "TensorFlow", "MCP", "Git", "GitHub",
+    "OpenAI", "LangChain", "MCP", "Git", "GitHub",
   ];
   return (
     <section className="relative py-24">
@@ -557,64 +649,193 @@ function TechStack() {
 
 function Work() {
   const [filter, setFilter] = useState<string>("All");
+
   const projects = [
+    // =========================
+    // WEB PROJECTS
+    // =========================
+
     {
-      title: "Nova AI Dashboard",
-      cat: "AI",
-      desc: "Realtime analytics workspace with an embedded LLM copilot for revenue teams.",
-      tags: ["Next.js", "OpenAI", "Postgres"],
-      accent: "from-[color:var(--cyan)]/40 to-[color:var(--primary)]/30",
-    },
-    {
-      title: "Helio Commerce",
-      cat: "Full Stack",
-      desc: "Headless commerce platform reducing checkout drop-off by 34% for a DTC brand.",
-      tags: ["React", "Node.js", "Stripe"],
-      accent: "from-[color:var(--purple)]/40 to-[color:var(--primary)]/30",
-    },
-    {
-      title: "Atlas Cloud Console",
-      cat: "Cloud",
-      desc: "Multi-region infrastructure control plane for a scale-up SaaS on AWS + Azure.",
-      tags: ["AWS", "Terraform", "Go"],
-      accent: "from-[color:var(--emerald)]/40 to-[color:var(--cyan)]/30",
-    },
-    {
-      title: "Lumen RAG Search",
-      cat: "AI",
-      desc: "Enterprise knowledge assistant answering 15k queries daily across 4M documents.",
-      tags: ["LangChain", "Pinecone", "Python"],
-      accent: "from-[color:var(--cyan)]/40 to-[color:var(--purple)]/30",
-    },
-    {
-      title: "Field Ops Mobile",
-      cat: "Mobile",
-      desc: "Offline-first mobile app for logistics teams operating in low-connectivity zones.",
-      tags: ["React Native", "SQLite", "Node"],
-      accent: "from-[color:var(--primary)]/40 to-[color:var(--emerald)]/30",
-    },
-    {
-      title: "Meridian Landing Suite",
+      title: "Cellular Shack",
       cat: "Web",
-      desc: "Award-nominated marketing site + CMS for a Series B fintech launch.",
-      tags: ["Astro", "Tailwind", "Sanity"],
-      accent: "from-[color:var(--purple)]/40 to-[color:var(--cyan)]/30",
+      desc: "An eCommerce website built on Shopify, where I contributed to the development and implementation of website features and functionality.",
+      tags: ["Shopify", "eCommerce", "Web Development"],
+      link: "https://cellularshack.ca/",
+      accent:
+        "from-[color:var(--cyan)]/40 to-[color:var(--primary)]/30",
+    },
+
+    {
+      title: "IIT Test Portal",
+      cat: "Web",
+      desc: "A complete online test portal designed for conducting and managing examinations, built using TypeScript and Python.",
+      tags: ["TypeScript", "Python", "Test Portal"],
+      link: "https://iit-test-portal.preview.emergentagent.com/",
+      accent:
+        "from-[color:var(--purple)]/40 to-[color:var(--cyan)]/30",
+    },
+
+    {
+      title: "EIT Global",
+      cat: "Web",
+      desc: "A professional business website developed using WordPress with a responsive layout and structured content management.",
+      tags: ["WordPress", "Responsive Design", "CMS"],
+      link: "https://eitglobal.ae/",
+      accent:
+        "from-[color:var(--emerald)]/40 to-[color:var(--cyan)]/30",
+    },
+
+    {
+      title: "LemonHQ",
+      cat: "Web",
+      desc: "A modern website developed using WordPress with a clean design and user-focused digital experience.",
+      tags: ["WordPress", "Web Design", "CMS"],
+      link: "https://lemonhq.io/",
+      accent:
+        "from-[color:var(--purple)]/40 to-[color:var(--primary)]/30",
+    },
+
+    {
+      title: "Provider Billing and Coding",
+      cat: "Web",
+      desc: "A professional WordPress website developed with a structured layout and responsive experience for users across devices.",
+      tags: ["WordPress", "Website Development", "Responsive"],
+      link: "https://providerbillingandcoding.com/",
+      accent:
+        "from-[color:var(--cyan)]/40 to-[color:var(--purple)]/30",
+    },
+
+    // =========================
+    // AI PROJECTS
+    // =========================
+
+    {
+      title: "AI Automation Platform",
+      cat: "AI",
+      desc: "An intelligent automation solution designed to streamline repetitive tasks and improve workflow efficiency.",
+      tags: ["AI", "Automation", "Python"],
+      link: "#",
+      accent:
+        "from-[color:var(--cyan)]/40 to-[color:var(--primary)]/30",
+    },
+
+    {
+      title: "AI Chatbot System",
+      cat: "AI",
+      desc: "A smart AI chatbot capable of answering questions and assisting with business support workflows.",
+      tags: ["LLM", "RAG", "API"],
+      link: "#",
+      accent:
+        "from-[color:var(--cyan)]/40 to-[color:var(--purple)]/30",
+    },
+
+    // =========================
+    // LOGO DESIGNS
+    // =========================
+
+    {
+      title: "Tech Brand Logo",
+      cat: "Logos",
+      desc: "A modern and memorable logo concept created for a technology-focused brand.",
+      tags: ["Logo Design", "Branding", "Creative"],
+      link: "#",
+      accent:
+        "from-[color:var(--purple)]/40 to-[color:var(--primary)]/30",
+    },
+
+    {
+      title: "Creative Agency Logo",
+      cat: "Logos",
+      desc: "A clean and professional logo concept created to establish a strong visual brand identity.",
+      tags: ["Brand Identity", "Logo", "Design"],
+      link: "#",
+      accent:
+        "from-[color:var(--cyan)]/40 to-[color:var(--purple)]/30",
+    },
+
+    // =========================
+    // BANNER DESIGNS
+    // =========================
+
+    {
+      title: "Business Promotion Banner",
+      cat: "Banners",
+      desc: "A promotional banner design created to highlight services and attract potential customers.",
+      tags: ["Banner Design", "Marketing", "Creative"],
+      link: "#",
+      accent:
+        "from-[color:var(--emerald)]/40 to-[color:var(--primary)]/30",
+    },
+
+    {
+      title: "Technology Event Banner",
+      cat: "Banners",
+      desc: "A modern banner design created for a technology event and digital marketing campaign.",
+      tags: ["Event Design", "Banner", "Digital"],
+      link: "#",
+      accent:
+        "from-[color:var(--cyan)]/40 to-[color:var(--emerald)]/30",
+    },
+
+    // =========================
+    // SOCIAL MEDIA POSTS
+    // =========================
+
+    {
+      title: "Digital Marketing Post",
+      cat: "Social Posts",
+      desc: "A visually engaging social media post created to promote digital services and increase audience engagement.",
+      tags: ["Social Media", "Marketing", "Post Design"],
+      link: "#",
+      accent:
+        "from-[color:var(--primary)]/40 to-[color:var(--purple)]/30",
+    },
+
+    {
+      title: "Business Awareness Post",
+      cat: "Social Posts",
+      desc: "A professional social media creative designed for brand awareness and audience engagement.",
+      tags: ["Instagram", "Branding", "Creative"],
+      link: "#",
+      accent:
+        "from-[color:var(--purple)]/40 to-[color:var(--cyan)]/30",
     },
   ];
-  const cats = ["All", "AI", "Web", "Full Stack", "Cloud", "Mobile"];
-  const filtered = filter === "All" ? projects : projects.filter((p) => p.cat === filter);
+
+  const cats = [
+    "All",
+    "AI",
+    "Web",
+    "Logos",
+    "Banners",
+    "Social Posts",
+  ];
+
+  const filtered =
+    filter === "All"
+      ? projects
+      : projects.filter((p) => p.cat === filter);
+
   return (
     <section id="work" className="relative py-32">
       <div className="mx-auto max-w-6xl px-6">
+        {/* Section Label */}
         <Reveal>
           <SectionLabel>Featured Work</SectionLabel>
         </Reveal>
+
         <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
+          {/* Heading */}
           <Reveal delay={0.1}>
             <h2 className="max-w-2xl text-4xl font-bold sm:text-5xl">
-              Selected <span className="text-gradient">client projects.</span>
+              Selected{" "}
+              <span className="text-gradient">
+                projects & creative work.
+              </span>
             </h2>
           </Reveal>
+
+          {/* Category Filters */}
           <Reveal delay={0.2}>
             <div className="flex flex-wrap gap-2">
               {cats.map((c) => (
@@ -634,6 +855,7 @@ function Work() {
           </Reveal>
         </div>
 
+        {/* Projects Grid */}
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
           <AnimatePresence mode="popLayout">
             {filtered.map((p, i) => (
@@ -643,23 +865,40 @@ function Work() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
+                transition={{
+                  duration: 0.5,
+                  delay: i * 0.05,
+                }}
                 className="group relative overflow-hidden rounded-3xl border border-white/10 bg-card/60 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:shadow-[var(--shadow-card)]"
               >
+                {/* Background Accent */}
                 <div
                   className={`absolute -top-24 -right-24 h-64 w-64 rounded-full bg-gradient-to-br ${p.accent} blur-3xl opacity-60 transition-opacity duration-500 group-hover:opacity-100`}
                 />
+
                 <div className="relative">
+                  {/* Category */}
                   <div className="flex items-center justify-between">
                     <span className="text-xs uppercase tracking-widest text-[color:var(--cyan)]">
                       {p.cat}
                     </span>
+
                     <span className="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-widest text-muted-foreground">
-                      Case Study
+                      Project
                     </span>
                   </div>
-                  <h3 className="mt-6 text-2xl font-semibold">{p.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{p.desc}</p>
+
+                  {/* Title */}
+                  <h3 className="mt-6 text-2xl font-semibold">
+                    {p.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {p.desc}
+                  </p>
+
+                  {/* Technology Tags */}
                   <div className="mt-6 flex flex-wrap gap-2">
                     {p.tags.map((t) => (
                       <span
@@ -670,74 +909,120 @@ function Work() {
                       </span>
                     ))}
                   </div>
+
+                  {/* Project Links */}
                   <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
-                    <a href="#" className="text-sm text-muted-foreground hover:text-foreground">
-                      Live Demo →
-                    </a>
                     <a
-                      href="#"
-                      className="inline-flex items-center gap-1 text-sm text-[color:var(--cyan)]"
+                      href={p.link}
+                      target={p.link !== "#" ? "_blank" : undefined}
+                      rel={
+                        p.link !== "#"
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
-                      View case study <ArrowUpRight className="h-4 w-4" />
+                      {p.link !== "#" ? "Live Website →" : "Coming Soon"}
                     </a>
+
+                    {p.link !== "#" && (
+                      <a
+                        href={p.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm text-[color:var(--cyan)] transition-all hover:gap-2"
+                      >
+                        View Project
+                        <ArrowUpRight className="h-4 w-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.article>
             ))}
           </AnimatePresence>
         </div>
+
+        {/* Empty State */}
+        {filtered.length === 0 && (
+          <div className="mt-14 rounded-3xl border border-white/10 bg-card/40 p-10 text-center text-muted-foreground">
+            No projects found in this category.
+          </div>
+        )}
       </div>
     </section>
   );
 }
-
+/* ---------- Testimonials ---------- */
 function Testimonials() {
   const items = [
     {
-      name: "Sarah Chen",
-      role: "CTO, Nova Analytics",
+      name: "Rahul Sharma",
+      role: "Software Engineer",
       quote:
-        "John shipped in three weeks what our previous team couldn't in six months. The bar for craft and communication was extraordinary.",
+        "Yash understood the requirements quickly and delivered the project with great attention to detail. The final website was fast, responsive, and exactly what we needed.",
     },
     {
-      name: "Marcus Rivera",
-      role: "Founder, Helio Commerce",
+      name: "Priya Mehta",
+      role: "Digital Marketer",
       quote:
-        "Rare combination of deep technical skill and product intuition. Our conversion rate is up 34% since launch. He is the first person I recommend.",
+        "Working with Yash was a smooth experience. He suggested useful improvements and created a clean, professional website that works perfectly on both mobile and desktop.",
     },
     {
-      name: "Aisha Okoye",
-      role: "VP Engineering, Atlas",
+      name: "Amit Kulkarni",
+      role: "Product Manager",
       quote:
-        "Calm, thoughtful, and ridiculously fast. John rearchitected our platform under load and it hasn't paged us since. Truly premium work.",
+        "Yash has strong technical knowledge and excellent problem-solving skills. He helped us improve our application and delivered the required features on time.",
     },
     {
-      name: "David Park",
-      role: "Product Lead, Lumen",
+      name: "Sneha Patil",
+      role: "Business Analyst",
       quote:
-        "Working with John felt like hiring a small agency inside one person. Design, engineering, strategy — all top tier.",
+        "We wanted to automate some repetitive tasks, and Yash helped us build a practical solution. It saved time and made our daily work much easier.",
+    },
+    {
+      name: "Rohit Deshmukh",
+      role: "Web Developer",
+      quote:
+        "Yash delivered quality work and was always open to feedback. His knowledge of web development, backend systems, AI, and automation makes him great to work with.",
     },
   ];
+
   const [i, setI] = useState(0);
+
   useEffect(() => {
-    const t = setInterval(() => setI((v) => (v + 1) % items.length), 5500);
+    const t = setInterval(() => {
+      setI((v) => (v + 1) % items.length);
+    }, 5500);
+
     return () => clearInterval(t);
   }, [items.length]);
+
   return (
-    <section className="relative py-32">
+    <section id="testimonials" className="relative py-32">
       <div className="mx-auto max-w-6xl px-6">
+
+        {/* Section Label */}
         <Reveal>
           <SectionLabel>Testimonials</SectionLabel>
         </Reveal>
+
+        {/* Heading */}
         <Reveal delay={0.1}>
           <h2 className="mt-6 max-w-2xl text-4xl font-bold sm:text-5xl">
-            Trusted by founders <span className="text-gradient">who ship.</span>
+            What people say about{" "}
+            <span className="text-gradient">working with me.</span>
           </h2>
         </Reveal>
 
+        {/* Testimonial Card */}
         <div className="relative mt-12 overflow-hidden rounded-3xl glass p-10 sm:p-14">
+
+          {/* Background Quote Icon */}
           <Quote className="absolute -top-6 -left-6 h-40 w-40 text-white/[0.03]" />
+
           <div className="relative">
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={i}
@@ -746,44 +1031,70 @@ function Testimonials() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
               >
+
+                {/* Five Stars */}
                 <div className="flex gap-1">
                   {Array.from({ length: 5 }).map((_, k) => (
-                    <Star key={k} className="h-4 w-4 fill-[color:var(--cyan)] text-[color:var(--cyan)]" />
+                    <Star
+                      key={k}
+                      className="h-4 w-4 fill-[color:var(--cyan)] text-[color:var(--cyan)]"
+                    />
                   ))}
                 </div>
+
+                {/* Review */}
                 <p className="mt-6 text-xl leading-relaxed text-foreground sm:text-2xl">
                   “{items[i].quote}”
                 </p>
+
+                {/* Person Information */}
                 <div className="mt-8 flex items-center gap-4">
+
+                  {/* Initial Avatar */}
                   <div className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[color:var(--cyan)] to-[color:var(--purple)] font-display font-bold text-black">
-                    {items[i].name.split(" ").map((n) => n[0]).join("")}
+                    {items[i].name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
                   </div>
+
                   <div>
-                    <div className="font-semibold">{items[i].name}</div>
-                    <div className="text-sm text-muted-foreground">{items[i].role}</div>
+                    <div className="font-semibold">
+                      {items[i].name}
+                    </div>
+
+                    <div className="text-sm text-muted-foreground">
+                      {items[i].role}
+                    </div>
                   </div>
                 </div>
+
               </motion.div>
             </AnimatePresence>
+
+            {/* Slider Navigation */}
             <div className="mt-10 flex gap-2">
               {items.map((_, k) => (
                 <button
                   key={k}
                   onClick={() => setI(k)}
                   className={`h-1.5 rounded-full transition-all ${
-                    k === i ? "w-8 bg-[color:var(--cyan)]" : "w-2 bg-white/20"
+                    k === i
+                      ? "w-8 bg-[color:var(--cyan)]"
+                      : "w-2 bg-white/20 hover:bg-white/40"
                   }`}
                   aria-label={`Testimonial ${k + 1}`}
                 />
               ))}
             </div>
+
           </div>
         </div>
       </div>
     </section>
   );
 }
-
+/* ---------- Process ---------- */
 function Process() {
   const steps = [
     ["Discovery", "Deep-dive into your goals, users, and constraints."],
@@ -863,9 +1174,9 @@ function WhyMe() {
 
 function Stats() {
   const stats = [
-    [50, "+", "Projects Shipped"],
-    [30, "+", "Happy Clients"],
-    [6, "+", "Years Experience"],
+    [5, "+", "Projects Shipped"],
+    [3, "+", "Happy Clients"],
+    [2.5, "+", "Years Experience"],
     [99, "%", "Client Satisfaction"],
   ] as const;
   return (
@@ -894,11 +1205,9 @@ function Stats() {
 
 function FAQ() {
   const qs = [
-    ["How do you price projects?", "Fixed-scope engagements are billed weekly with a written statement of work. Long-term retainers are billed monthly. No surprises, no hidden fees."],
     ["What is your typical timeline?", "Landing pages ship in 1–2 weeks, MVPs in 4–8 weeks, and full products in 3–6 months. I keep a small client roster so I can move quickly."],
     ["Do you offer post-launch support?", "Yes — every project includes 30 days of priority support. Ongoing retainers are available for teams that want a fractional senior engineer."],
     ["Which technologies do you specialise in?", "TypeScript, React, Next.js, Node, Python, Postgres, and the modern AI stack (OpenAI, LangChain, RAG). I choose tools that fit the problem."],
-    ["How do payments work?", "50% upfront to reserve capacity, remainder billed in weekly milestones. Wire, ACH, or Stripe."],
     ["Can you maintain existing code?", "Absolutely. I take on rescue projects, audits, and long-term maintenance for teams that need a senior pair of hands."],
   ];
   const [open, setOpen] = useState<number | null>(0);
@@ -974,9 +1283,9 @@ function Contact() {
             <Reveal delay={0.3}>
               <div className="mt-10 space-y-4">
                 {[
-                  [Mail, "hello@johnanderson.dev"],
-                  [Phone, "+1 (415) 555-0142"],
-                  [MapPin, "San Francisco · Remote worldwide"],
+                  [Mail, "yashpatil62002@gmail.com"],
+                  [Phone, "+91-9175041403"],
+                  [MapPin, "Pune, Maharashtra, India"],
                 ].map(([Icon, v]) => (
                   <div key={v as string} className="flex items-center gap-3">
                     <div className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.03] text-[color:var(--cyan)]">
@@ -1009,15 +1318,15 @@ function Contact() {
               className="rounded-3xl border border-white/10 bg-card/60 p-8"
             >
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <Field label="Name" placeholder="Jane Cooper" />
-                <Field label="Email" type="email" placeholder="jane@company.com" />
+                <Field label="Name" placeholder="Yash Patil" />
+                <Field label="Email" type="email" placeholder="yashpatil62002@gmail.com" />
                 <Field label="Company" placeholder="Acme Inc." />
-                <Field label="Phone" placeholder="+1 555 000 0000" />
+                <Field label="Phone" placeholder="+91 9175041403" />
                 <div className="sm:col-span-2 grid grid-cols-2 gap-4">
-                  <Select label="Budget" options={["< $5k", "$5k – $15k", "$15k – $50k", "$50k+"]} />
+                  <Select label="Budget" options={["< Rs 5k", "Rs 5k – Rs 15k", "Rs 15k – Rs 50k", "Rs 50k+"]} />
                   <Select
                     label="Project type"
-                    options={["Web", "AI", "Cloud", "Mobile", "Consulting"]}
+                    options={["Web", "AI", "Logo Design", "Banner Design", "Consulting"]}
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -1033,9 +1342,7 @@ function Contact() {
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button>Send Message</Button>
-                <Button variant="ghost" icon={<Calendar className="h-4 w-4" />}>
-                  Book a Meeting
-                </Button>
+                
               </div>
             </form>
           </Reveal>
@@ -1092,9 +1399,9 @@ function Footer() {
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
             <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[color:var(--cyan)] to-[color:var(--purple)] font-display text-sm font-bold text-black">
-              JA
+              YP
             </span>
-            <span className="text-lg font-semibold">John Anderson</span>
+            <span className="text-lg font-semibold">Yash Patil</span>
           </div>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
             Independent full-stack developer & AI engineer. Building premium digital products for
@@ -1119,14 +1426,10 @@ function Footer() {
         <div>
           <div className="text-xs uppercase tracking-widest text-muted-foreground">Newsletter</div>
           <p className="mt-4 text-sm text-muted-foreground">
-            One thoughtful email a month on shipping better software.
+            One thoughtful email each month on shipping better software.
           </p>
-          <form onSubmit={(e) => e.preventDefault()} className="mt-4 flex gap-2">
-            <input
-              type="email"
-              placeholder="you@work.com"
-              className="w-full rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm outline-none focus:border-[color:var(--cyan)]/50"
-            />
+          <form onSubmit={(e) => e.preventDefault()} className="mt-4 flex gap-4">
+            
             <button className="rounded-full bg-gradient-to-r from-[color:var(--cyan)] to-[color:var(--purple)] px-4 py-2 text-sm font-medium text-black">
               Join
             </button>
@@ -1134,7 +1437,7 @@ function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-10 flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted-foreground sm:flex-row">
-        <span>© 2026 John Anderson. Crafted with care.</span>
+        <span>© 2026 Yash Patil.</span>
         <div className="flex gap-2">
           {[Github, Linkedin, Twitter].map((Icon, i) => (
             <a
@@ -1184,6 +1487,7 @@ function CursorGlow() {
   );
 }
 
+/*
 function FloatingWhatsapp() {
   return (
     <a
@@ -1195,6 +1499,7 @@ function FloatingWhatsapp() {
     </a>
   );
 }
+  */
 
 function BackToTop() {
   const [show, setShow] = useState(false);
@@ -1231,7 +1536,7 @@ function Loader() {
         >
           <div className="text-center">
             <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[color:var(--cyan)] to-[color:var(--purple)] font-display text-xl font-bold text-black">
-              JA
+              YP
             </div>
             <div className="mt-6 flex items-center justify-center gap-1 text-xs uppercase tracking-[0.4em] text-muted-foreground">
               <span>loading</span>
@@ -1254,7 +1559,7 @@ function Portfolio() {
       <CursorGlow />
       <Nav />
       <main>
-        <Hero />
+        <Hero /> 
         <About />
         <Services />
         <TechStack />
@@ -1267,7 +1572,6 @@ function Portfolio() {
         <Contact />
       </main>
       <Footer />
-      <FloatingWhatsapp />
       <BackToTop />
     </div>
   );
