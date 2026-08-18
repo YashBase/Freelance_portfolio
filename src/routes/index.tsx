@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useSpring, useInView, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
@@ -696,6 +697,16 @@ function Work() {
     },
 
     {
+      title: "Leva Patidar Samaj Community",
+      cat: "Web",
+      desc: "A community-focused website built using Hostinger Website Builder with a clean design and easy access to important information and updates.",
+      tags: ["Hostinger", "Website Builder", "Web Design"],
+      link: "https://lppa2010.in/",
+      accent:
+        "from-[color:var(--purple)]/40 to-[color:var(--primary)]/30",
+},
+
+    {
       title: "Provider Billing and Coding",
       cat: "Web",
       desc: "A professional WordPress website developed with a structured layout and responsive experience for users across devices.",
@@ -733,46 +744,57 @@ function Work() {
     // LOGO DESIGNS
     // =========================
 
-    {
-      title: "Tech Brand Logo",
-      cat: "Logos",
-      desc: "A modern and memorable logo concept created for a technology-focused brand.",
-      tags: ["Logo Design", "Branding", "Creative"],
-      link: "#",
-      accent:
-        "from-[color:var(--purple)]/40 to-[color:var(--primary)]/30",
-    },
+ 
 
     {
-      title: "Creative Agency Logo",
-      cat: "Logos",
-      desc: "A clean and professional logo concept created to establish a strong visual brand identity.",
-      tags: ["Brand Identity", "Logo", "Design"],
-      link: "#",
-      accent:
-        "from-[color:var(--cyan)]/40 to-[color:var(--purple)]/30",
-    },
+  title: "Logo Design 1",
+  cat: "Logos",
+  desc: "A creative and innovative logo designed to represent limitless ideas and bold brand vision.",
+  tags: ["Logo Design", "Branding", "Creative"],
+  link: "https://canva.link/l4g9x0fvpdkhctb",
+  accent:
+    "from-[color:var(--purple)]/40 to-[color:var(--primary)]/30",
+},
+
+{
+  title: "logo Design 2",
+  cat: "Logos",
+  desc: "A futuristic logo concept created for an artificial intelligence and technology-focused brand.",
+  tags: ["Logo Design", "AI", "Technology"],
+  link: "https://canva.link/ootkvehtekywb60",
+  accent:
+    "from-[color:var(--purple)]/40 to-[color:var(--primary)]/30",
+},
 
     // =========================
     // BANNER DESIGNS
     // =========================
 
     {
-      title: "Business Promotion Banner",
+      title: "Sample Banner 1",
       cat: "Banners",
       desc: "A promotional banner design created to highlight services and attract potential customers.",
       tags: ["Banner Design", "Marketing", "Creative"],
-      link: "#",
+      link: "https://www.canva.com/design/DAGoRflLAoo/kf7ZB7uTSXACpL28GU7DpQ/edit",
       accent:
         "from-[color:var(--emerald)]/40 to-[color:var(--primary)]/30",
     },
 
     {
-      title: "Technology Event Banner",
+      title: "Sample Banner 2",
       cat: "Banners",
       desc: "A modern banner design created for a technology event and digital marketing campaign.",
       tags: ["Event Design", "Banner", "Digital"],
-      link: "#",
+      link: "https://www.canva.com/design/DAGoRVAPITI/5KPkhcT2b_LD8ViScUsdog/edit",
+      accent:
+        "from-[color:var(--cyan)]/40 to-[color:var(--emerald)]/30",
+    },
+      {
+      title: "Sample Banner 3",
+      cat: "Banners",
+      desc: "A modern banner design created for a technology event and digital marketing campaign.",
+      tags: ["Event Design", "Banner", "Digital"],
+      link: "https://www.canva.com/design/DAGoRV7mzkA/7SPE4iA5q9MhFryGKgQ4xg/edit",
       accent:
         "from-[color:var(--cyan)]/40 to-[color:var(--emerald)]/30",
     },
@@ -782,21 +804,21 @@ function Work() {
     // =========================
 
     {
-      title: "Digital Marketing Post",
+      title: "Sample Social Post 1",
       cat: "Social Posts",
       desc: "A visually engaging social media post created to promote digital services and increase audience engagement.",
       tags: ["Social Media", "Marketing", "Post Design"],
-      link: "#",
+      link: "https://www.canva.com/design/DAG-DTn3X4M/lCTsUZxIrSh1F64FNhQxPA/edit",
       accent:
         "from-[color:var(--primary)]/40 to-[color:var(--purple)]/30",
     },
 
     {
-      title: "Business Awareness Post",
+      title: "Sample Social Post 2",
       cat: "Social Posts",
       desc: "A professional social media creative designed for brand awareness and audience engagement.",
       tags: ["Instagram", "Branding", "Creative"],
-      link: "#",
+      link: "https://www.canva.com/design/DAG-De7TN4E/9Qbu7YaxcfNvj8FSpN7GsQ/edit",
       accent:
         "from-[color:var(--purple)]/40 to-[color:var(--cyan)]/30",
     },
@@ -1259,7 +1281,36 @@ function FAQ() {
   );
 }
 
+const EMAILJS_PUBLIC_KEY = "6ayL5zi-kRCBD_sEv";
+const EMAILJS_SERVICE_ID = "service_67v35t9";
+const EMAILJS_TEMPLATE_ID = "template_eeflve9";
+
 function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  useEffect(() => {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = formRef.current;
+    if (!form) return;
+
+    setStatus("sending");
+
+    try {
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      console.error("EmailJS submission failed:", error);
+      setStatus("error");
+    }
+  };
+
   return (
     <section id="contact" className="relative py-32">
       <div className="mx-auto max-w-6xl px-6">
@@ -1314,17 +1365,23 @@ function Contact() {
 
           <Reveal delay={0.2}>
             <form
-              onSubmit={(e) => e.preventDefault()}
+              ref={formRef}
+              onSubmit={handleSubmit}
               className="rounded-3xl border border-white/10 bg-card/60 p-8"
             >
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <Field label="Name" placeholder="Yash Patil" />
-                <Field label="Email" type="email" placeholder="yashpatil62002@gmail.com" />
-                <Field label="Company" placeholder="Acme Inc." />
-                <Field label="Phone" placeholder="+91 9175041403" />
+                <Field name="from_name" label="Name" placeholder="Yash Patil" required />
+                <Field name="from_email" label="Email" type="email" placeholder="yashpatil62002@gmail.com" required />
+                <Field name="company" label="Company" placeholder="Acme Inc." />
+                <Field name="phone" label="Phone" placeholder="+91 9175041403" />
                 <div className="sm:col-span-2 grid grid-cols-2 gap-4">
-                  <Select label="Budget" options={["< Rs 5k", "Rs 5k – Rs 15k", "Rs 15k – Rs 50k", "Rs 50k+"]} />
                   <Select
+                    name="budget"
+                    label="Budget"
+                    options={["< Rs 5k", "Rs 5k – Rs 15k", "Rs 15k – Rs 50k", "Rs 50k+"]}
+                  />
+                  <Select
+                    name="project_type"
                     label="Project type"
                     options={["Web", "AI", "Logo Design", "Banner Design", "Consulting"]}
                   />
@@ -1334,15 +1391,29 @@ function Contact() {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     rows={5}
                     placeholder="Tell me about your project, timeline, and goals."
                     className="w-full resize-none rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none transition-all placeholder:text-muted-foreground/60 focus:border-[color:var(--cyan)]/50 focus:bg-white/[0.06]"
+                    required
                   />
                 </div>
               </div>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button>Send Message</Button>
-                
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[color:var(--cyan)] via-[color:var(--primary)] to-[color:var(--purple)] px-6 py-3 text-sm font-medium text-black transition-opacity disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  {status === "sending" ? "Sending..." : "Send Message"}
+                </button>
+
+                {status === "success" && (
+                  <span className="text-sm text-emerald-400">Message sent successfully.</span>
+                )}
+                {status === "error" && (
+                  <span className="text-sm text-red-400">Something went wrong. Please try again.</span>
+                )}
               </div>
             </form>
           </Reveal>
@@ -1356,10 +1427,14 @@ function Field({
   label,
   placeholder,
   type = "text",
+  name,
+  required = false,
 }: {
   label: string;
   placeholder?: string;
   type?: string;
+  name?: string;
+  required?: boolean;
 }) {
   return (
     <div>
@@ -1367,23 +1442,28 @@ function Field({
         {label}
       </label>
       <input
+        name={name}
         type={type}
         placeholder={placeholder}
+        required={required}
         className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none transition-all placeholder:text-muted-foreground/60 focus:border-[color:var(--cyan)]/50 focus:bg-white/[0.06]"
       />
     </div>
   );
 }
 
-function Select({ label, options }: { label: string; options: string[] }) {
+function Select({ label, options, name }: { label: string; options: string[]; name?: string }) {
   return (
     <div>
       <label className="mb-2 block text-xs uppercase tracking-widest text-muted-foreground">
         {label}
       </label>
-      <select className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none transition-all focus:border-[color:var(--cyan)]/50">
+      <select
+        name={name}
+        className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none transition-all focus:border-[color:var(--cyan)]/50"
+      >
         {options.map((o) => (
-          <option key={o} className="bg-background">
+          <option key={o} value={o} className="bg-background">
             {o}
           </option>
         ))}
