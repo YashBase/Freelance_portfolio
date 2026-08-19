@@ -720,25 +720,7 @@ function Work() {
     // AI PROJECTS
     // =========================
 
-    {
-      title: "AI Automation Platform",
-      cat: "AI",
-      desc: "An intelligent automation solution designed to streamline repetitive tasks and improve workflow efficiency.",
-      tags: ["AI", "Automation", "Python"],
-      link: "#",
-      accent:
-        "from-[color:var(--cyan)]/40 to-[color:var(--primary)]/30",
-    },
 
-    {
-      title: "AI Chatbot System",
-      cat: "AI",
-      desc: "A smart AI chatbot capable of answering questions and assisting with business support workflows.",
-      tags: ["LLM", "RAG", "API"],
-      link: "#",
-      accent:
-        "from-[color:var(--cyan)]/40 to-[color:var(--purple)]/30",
-    },
 
     // =========================
     // LOGO DESIGNS
@@ -826,7 +808,7 @@ function Work() {
 
   const cats = [
     "All",
-    "AI",
+
     "Web",
     "Logos",
     "Banners",
