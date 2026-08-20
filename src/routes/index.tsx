@@ -283,9 +283,9 @@ function Hero() {
           <Reveal delay={0.4}>
             <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4">
               {[
-                ["50+", "Projects"],
-                ["30+", "Clients"],
-                ["6+", "Years"],
+                ["6+", "Projects"],
+                ["10+", "Clients"],
+                ["2.5+", "Years"],
                 ["25+", "Technologies"],
               ].map(([n, l]) => (
                 <div key={l as string}>
@@ -808,7 +808,6 @@ function Work() {
 
   const cats = [
     "All",
-
     "Web",
     "Logos",
     "Banners",
@@ -1178,9 +1177,9 @@ function WhyMe() {
 
 function Stats() {
   const stats = [
-    [5, "+", "Projects Shipped"],
-    [3, "+", "Happy Clients"],
-    [2.5, "+", "Years Experience"],
+    [6, "+", "Projects Shipped"],
+    [10, "+", "Happy Clients"],
+    [2, "+", "Years Experience"],
     [99, "%", "Client Satisfaction"],
   ] as const;
   return (
@@ -1329,7 +1328,7 @@ function Contact() {
                 ))}
               </div>
             </Reveal>
-
+{/*}
             <Reveal delay={0.4}>
               <div className="mt-8 flex gap-2">
                 {[Github, Linkedin, Twitter, Mail].map((Icon, i) => (
@@ -1343,6 +1342,7 @@ function Contact() {
                 ))}
               </div>
             </Reveal>
+            {*/}
           </div>
 
           <Reveal delay={0.2}>
@@ -1498,6 +1498,7 @@ function Footer() {
           </form>
         </div>
       </div>
+      {/* Footer Bottom }
       <div className="mx-auto mt-10 flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted-foreground sm:flex-row">
         <span>© 2026 Yash Patil.</span>
         <div className="flex gap-2">
@@ -1512,6 +1513,7 @@ function Footer() {
           ))}
         </div>
       </div>
+      {*/}
     </footer>
   );
 }
